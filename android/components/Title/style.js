@@ -6,7 +6,6 @@ const style = StyleSheet.create({
     fontWeight: 'bold',
     color: '#022150',
     alignSelf: 'flex-start',
-    // fontFamily: 'Inter_28pt-SemiBold', // comente para teste
     marginTop: -40,
     marginLeft: -15,
   },
@@ -15,7 +14,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 27,
     marginRight: 17,
-    marginTop: 30,  
+    marginTop: 30,
   },
 name: {
   fontSize: 14,
@@ -25,22 +24,22 @@ name: {
 view:{
   width: 70,
    alignItems: 'center',
-    marginRight: 10
+    marginRight: 10,
 },
 image:{
   width: 60,
   height: 60,
   borderRadius: 30,
   marginTop:1,
-},  
+},
 userImageContainer:{
   borderColor:'#F35BAC',
   borderWidth:2,
   padding:3,
   borderRadius:50,
-  
 
-}
+
+},
 });
 
 export default style;

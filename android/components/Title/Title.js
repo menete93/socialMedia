@@ -1,6 +1,6 @@
 // Title.js
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View} from 'react-native';
 import PropTypes from 'prop-types';
 import style from './style';
 

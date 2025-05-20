@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import style from '../../android/components/Title/style';
 
 const globalStyle = StyleSheet.create({
   header: {
@@ -38,8 +37,8 @@ const globalStyle = StyleSheet.create({
   marginTop:80,
   width:'400',
   position: 'absolute',
-  fontFamily:'Inter_18pt-SemiBoldItalic'
-  
+  fontFamily:'Inter_18pt-SemiBoldItalic',
+
   },
 });
 
