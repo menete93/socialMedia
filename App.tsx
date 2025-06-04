@@ -25,7 +25,7 @@ type UserPostType = {
   image: ImageSourcePropType,
   UserProfileImage:ImageSourcePropType
 
-  
+
 };
 
 const App = () => {
@@ -44,7 +44,7 @@ const App = () => {
 
   const userPosts:UserPostType[] = [
     { id: 1,
-      firstName:'Allison Backer',
+      firstName:'Becker',
       lastName:'Becker',
       location:'Boston MA',
       likes:1201,
@@ -98,15 +98,15 @@ const App = () => {
       UserProfileImage:require('./assets/images/dafault_profile.png.jpg'),
 
        },
-        
-  ]
+
+  ];
 
   const userStoriesPageSize = 4;
 
   const [userStoriesCurrentPage, setUserStoriesCurrentPage] = useState(1);
   const [userStoriesRenderedData, setUserStoriesRenderedData] = useState<UserStoryType[]>([]);
   const [isLoadingUserStories, setIsLoadingUserStories] = useState(false);
-  
+
    const userPostPageSize = 4;
 
   const [userPostCurrentPage, setUserPostCurrentPage] = useState(1);
@@ -117,7 +117,7 @@ const App = () => {
   // ✅ Função de paginação
   const pagination = (database: UserStoryType[], currentPage: number, pageSize: number) => {
    console.log('currentPage',currentPage);
-   
+
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
     return startIndex >= database.length ? [] : database.slice(startIndex, endIndex);
@@ -134,7 +134,7 @@ const App = () => {
 
   // ✅ Carregar mais dados ao final da lista
   const loadMoreUserStories = () => {
-    if (isLoadingUserStories) return;
+    if (isLoadingUserStories) {return;}
 
     const nextPage = userStoriesCurrentPage + 1;
     const contentToAppend = pagination(userStories, nextPage, userStoriesPageSize);
@@ -170,14 +170,7 @@ const App = () => {
           showsHorizontalScrollIndicator={false}
         />
 
-        <View style={{
-  //  flex:1,
-   paddingHorizontal: 50,
-   paddingVertical: 180,
-  //  justifyContent: 'flex-start', 
-  //  alignItems: 'flex-start' 
-     }}>
-  <FlatList
+          <FlatList
     data={userPosts}
     keyExtractor={(item) => item.id.toString()}
     renderItem={({ item }) => (
@@ -189,22 +182,24 @@ const App = () => {
         likes={item.likes}
         comments={item.comments}
         bookmarks={item.bookMarks}
-        // profileImage={item.UserProfileImage}
-        // location={item.location}
-        // imageDimensions={48}
+         location={item.location}
       />
+
     )}
-    showsVerticalScrollIndicator={false}
+         onEndReachedThreshold={0.5}
+         onEndReached={loadMoreUserStories}
+         showsVerticalScrollIndicator={false}
   />
-</View>
+
+        <View />
       </View>
-           
+
 
 
 
     </View>
   );
-  
+
 };
 
 export default App;

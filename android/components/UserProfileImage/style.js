@@ -4,6 +4,7 @@ const style = StyleSheet.create({
 
 
 view:{
+  flex:1,
   width: 70,
    alignItems: 'center',
     marginRight: 10,
@@ -14,7 +15,7 @@ image:{
     borderRadius: 30,
     marginTop: 1,
     alignSelf: 'flex-start', // garante que fique à esquerda
-  
+
 },
 userImageContainer:{
   borderColor:'#F35BAC',
