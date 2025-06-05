@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text,Image } from 'react-native';
+import {View, Text, Image} from 'react-native';
 import PropTypes from 'prop-types';
 import style from './../UserPost/style';
 import UserProfileImage from '../UserProfileImage/UserProfileImage';
@@ -7,26 +7,51 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const UserPost = props => {
   return (
-    <View style={style.userPostContainer} >
-
+    <View style={style.userPostContainer}>
       <View style={style.view}>
         {/* LADO ESQUERDO */}
         <View style={style.image}>
-          <UserProfileImage profileImage={props.profileImage} imageDimensions={48} />
+          <UserProfileImage
+            profileImage={props.profileImage}
+            imageDimensions={48}
+          />
           <View style={style.text}>
             <Text style={style.username}>
               {props.firstName} {props.lastName}
             </Text>
-            {props.location && <Text style={style.location}>{props.location}</Text>}
+            {props.location && (
+              <Text style={style.location}>{props.location}</Text>
+            )}
           </View>
         </View>
 
         {/* LADO DIREITO */}
-        <Icon name="ellipsis-h" size={20}  color={'#79869F'} />
+        <Icon name="ellipsis-h" size={20} color={'#79869F'} />
       </View>
 
-      <View style={{alignItems:'center'}}>
-        <Image source={props.image}/>
+      <View style={{alignItems: 'center'}}>
+        <Image source={props.image} />
+      </View>
+
+      <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row', padding: 10}}>
+          <Icon name="heart-o" size={20} color={'#79869F'} />
+          <Text style={{marginLeft: 1, color: '#79869F'}}>{props.likes}</Text>
+        </View>
+
+        <View style={{flexDirection: 'row', padding: 10}}>
+          <Icon name="comment-o" size={20} color={'#79869F'} />
+          <Text style={{marginLeft: 1, color: '#79869F'}}>
+            {props.comments}
+          </Text>
+        </View>
+
+        <View style={{flexDirection: 'row', padding: 10}}>
+          <Icon name="bookmark-o" size={20} color={'#79869F'} />
+          <Text style={{marginLeft: 1, color: '#79869F'}}>
+            {props.bookMarks}
+          </Text>
+        </View>
       </View>
     </View>
   );
