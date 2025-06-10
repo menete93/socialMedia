@@ -53,6 +53,10 @@ const globalStyle = StyleSheet.create({
     paddingTop: 20,
     // paddingHorizontal: 30,
   },
+  conteinerStyle: {
+    paddingHorizontal: 43,
+    justifyContent: 'center', // funciona apenas se o conteúdo couber na tela
+  },
 });
 
 export default globalStyle;

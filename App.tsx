@@ -189,57 +189,60 @@ const App = () => {
   };
   return (
     <View style={globalStyle.containerPost}>
-      <View style={globalStyle.header}>
-        {/* header com título, ícone e stories */}
-        <Title title="Let's Explore" />
-        <TouchableOpacity style={globalStyle.messageIcon}>
-          <Icon name="envelope" size={20} color="#898DAE" />
-        </TouchableOpacity>
-        <View style={globalStyle.messageNumberContainer}>
-          <Text style={globalStyle.messageNumber}>2</Text>
-        </View>
-      </View>
+      <FlatList
+        data={userPosts}
+        keyExtractor={item => item.id.toString()}
+        ListHeaderComponent={
+          <View>
+            {/* Cabeçalho com título e ícone */}
+            <View style={globalStyle.header}>
+              <Title title="Let's Explore" />
+              <TouchableOpacity style={globalStyle.messageIcon}>
+                <Icon name="envelope" size={20} color="#898DAE" />
+              </TouchableOpacity>
+              <View style={globalStyle.messageNumberContainer}>
+                <Text style={globalStyle.messageNumber}>2</Text>
+              </View>
+            </View>
 
-      <View style={globalStyle.containerFlatlist}>
-        <View>
-          <FlatList
-            data={userStoriesRenderedData}
-            keyExtractor={item => item.id.toString()}
-            renderItem={({item}) => (
-              <UserStory
-                firstName={item.firstName}
-                profileImage={item.profileImage}
+            {/* FlatList horizontal para os Stories */}
+            <View>
+              <FlatList
+                data={userStoriesRenderedData}
+                keyExtractor={item => item.id.toString()}
+                renderItem={({item}) => (
+                  <View style={{marginRight: 8}}>
+                    <UserStory
+                      firstName={item.firstName}
+                      profileImage={item.profileImage}
+                    />
+                  </View>
+                )}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                onEndReachedThreshold={0.5}
+                onEndReached={loadMoreUserStories}
+                contentContainerStyle={globalStyle.conteinerStyle}
               />
-            )}
-            horizontal
-            onEndReachedThreshold={0.5}
-            onEndReached={loadMoreUserStories}
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
-
-        {/* Aqui está o segredo: flex: 1 pra ocupar o espaço restante */}
-        <View style={globalStyle.userPostContainer}>
-          <FlatList
-            // ListHeaderComponent={}
-            data={userPosts}
-            keyExtractor={item => item.id.toString()}
-            renderItem={({item}) => (
-              <UserPost
-                firstName={item.firstName}
-                lastName={item.lastName}
-                image={item.image}
-                profileImage={item.UserProfileImage}
-                likes={item.likes}
-                comments={item.comments}
-                bookmarks={item.bookMarks}
-                location={item.location}
-              />
-            )}
-            showsVerticalScrollIndicator={false}
-          />
-        </View>
-      </View>
+            </View>
+          </View>
+        }
+        renderItem={({item}) => (
+          <View style={globalStyle.containerFlatlist}>
+            <UserPost
+              firstName={item.firstName}
+              lastName={item.lastName}
+              image={item.image}
+              profileImage={item.UserProfileImage}
+              likes={item.likes}
+              comments={item.comments}
+              bookmarks={item.bookMarks}
+              location={item.location}
+            />
+          </View>
+        )}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 };
