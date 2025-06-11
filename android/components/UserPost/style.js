@@ -32,6 +32,22 @@ const style = StyleSheet.create({
     fontFamily: 'Inter_16pt-SemiBold',
     fontSize: 12,
   },
+  userpostState: {
+    flexDirection: 'row',
+    padding: 10,
+  },
+  userLike: {
+    marginLeft: 1,
+    color: '#79869F',
+  },
+  comments: {
+    marginLeft: 1,
+    color: '#79869F',
+  },
+  icon: {
+    size: 20,
+    color: '#79869F',
+  },
 });
 
 export default style;

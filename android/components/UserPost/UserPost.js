@@ -34,23 +34,19 @@ const UserPost = props => {
       </View>
 
       <View style={{flexDirection: 'row'}}>
-        <View style={{flexDirection: 'row', padding: 10}}>
+        <View style={style.userpostState}>
           <Icon name="heart-o" size={20} color={'#79869F'} />
-          <Text style={{marginLeft: 1, color: '#79869F'}}>{props.likes}</Text>
+          <Text style={style.userLike}>{props.likes}</Text>
         </View>
 
-        <View style={{flexDirection: 'row', padding: 10}}>
+        <View style={style.userpostState}>
           <Icon name="comment-o" size={20} color={'#79869F'} />
-          <Text style={{marginLeft: 1, color: '#79869F'}}>
-            {props.comments}
-          </Text>
+          <Text style={style.comments}>{props.comments}</Text>
         </View>
 
-        <View style={{flexDirection: 'row', padding: 10}}>
+        <View style={style.userpostState}>
           <Icon name="bookmark-o" size={20} color={'#79869F'} />
-          <Text style={{marginLeft: 1, color: '#79869F'}}>
-            {props.bookMarks}
-          </Text>
+          <Text style={style.comments}>{props.bookMarks}</Text>
         </View>
       </View>
     </View>
